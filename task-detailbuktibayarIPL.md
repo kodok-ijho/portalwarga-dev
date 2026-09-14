@@ -20,11 +20,11 @@ Berikut adalah urutan tugas eksekusi perbaikan bug detail bukti bayar IPL:
 
 | Task ID | Nama Tugas | File Target | Estimasi | Status |
 | :--- | :--- | :--- | :---: | :---: |
-| **TASK-01** | Implementasi Period-Key Lookup pada Rendering Cell Matriks | `client/src/pages/PaymentMatrix.jsx` | 20 mnt | 🚀 Ready |
-| **TASK-02** | Penyelarasan Array Period `getBillMatrix` & `normalizeBillMatrixRows` | `client/src/services/mockData.js`, `client/src/services/dataService.js` | 25 mnt | 🚀 Ready |
-| **TASK-03** | Refactoring Context Unit & Pengecekan Hak Akses Warga di Modal | `client/src/pages/PaymentMatrix.jsx` | 20 mnt | 🚀 Ready |
-| **TASK-04** | Perbaikan Resolusi Payment Object & Tanggal Bayar (`getResolvedPaymentDate`) | `client/src/pages/PaymentMatrix.jsx`, `client/src/services/dataService.js` | 15 mnt | 🚀 Ready |
-| **TASK-05** | Pengujian & Verifikasi Lintasan Peran (Warga vs Admin/Bendahara) | Test Suite & Manual Run | 20 mnt | 🚀 Ready |
+| **TASK-01** | Implementasi Period-Key Lookup pada Rendering Cell Matriks | `client/src/pages/PaymentMatrix.jsx` | 20 mnt | ✅ Selesai |
+| **TASK-02** | Penyelarasan Array Period `getBillMatrix` & `normalizeBillMatrixRows` | `client/src/services/mockData.js`, `client/src/services/dataService.js` | 25 mnt | ✅ Selesai |
+| **TASK-03** | Refactoring Context Unit & Pengecekan Hak Akses Warga di Modal | `client/src/pages/PaymentMatrix.jsx` | 20 mnt | ✅ Selesai |
+| **TASK-04** | Perbaikan Resolusi Payment Object & Tanggal Bayar (`getResolvedPaymentDate`) | `client/src/pages/PaymentMatrix.jsx`, `client/src/services/dataService.js` | 15 mnt | ✅ Selesai |
+| **TASK-05** | Pengujian & Verifikasi Lintasan Peran (Warga vs Admin/Bendahara) | Test Suite & Manual Run | 20 mnt | ✅ Selesai |
 
 ---
 
@@ -86,7 +86,7 @@ Berikut adalah urutan tugas eksekusi perbaikan bug detail bukti bayar IPL:
 
 ## 3. 🧪 Skenario Pengujian & Test Checklist
 
-- [ ] **Test 1: Verifikasi Keselarasan Bulan & Unit (No Data Skew)**
+- [x] **Test 1: Verifikasi Keselarasan Bulan & Unit (No Data Skew)**
   - Login sebagai Admin atau Warga.
   - Buka Matriks Pembayaran untuk Tahun Buku 2026/2027.
   - Klik sel pada kolom **Agt '26** untuk rumah **A/02** (Siti Rahayu).
@@ -94,17 +94,17 @@ Berikut adalah urutan tugas eksekusi perbaikan bug detail bukti bayar IPL:
   - Klik sel pada kolom **Sep '26** untuk rumah **A/02**.
   - *Ekspektasi*: Modal menampilkan `Blok A/02` dan Periode IPL `September 2026`.
 
-- [ ] **Test 2: Verifikasi Akses Bukti Bayar Warga (Warga Own-Unit Proof)**
+- [x] **Test 2: Verifikasi Akses Bukti Bayar Warga (Warga Own-Unit Proof)**
   - Login sebagai Warga (`warga@palmvillage.id`).
   - Buka Matriks Pembayaran -> Pilih rumah sendiri (`Blok A/02`).
   - Klik sel periode yang berstatus `Menunggu Verifikasi` atau `Lunas`.
   - *Ekspektasi*: Bukti transfer (gambar / attachment) tampil dengan jelas, **bukan** tulisan "Tidak ada file bukti transfer...".
 
-- [ ] **Test 3: Verifikasi Tanggal Bayar**
+- [x] **Test 3: Verifikasi Tanggal Bayar**
   - Pada modal detail yang sama, periksa field **Tanggal Bayar**.
   - *Ekspektasi*: Menampilkan tanggal terformat yang valid (misalnya `10 Agu 2026`), bukan `-`.
 
-- [ ] **Test 4: Verifikasi Proteksi Unit Lain (Warga Security)**
+- [x] **Test 4: Verifikasi Proteksi Unit Lain (Warga Security)**
   - Login sebagai Warga (`warga@palmvillage.id`).
   - Klik sel lunas pada unit milik warga lain (misal `Blok A/01`).
   - *Ekspektasi*: Menampilkan modal detail dengan proteksi `"🔒 Anda tidak memiliki izin untuk melihat bukti pembayaran unit lain"`.
